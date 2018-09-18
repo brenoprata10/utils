@@ -1,0 +1,37 @@
+.calculadora-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #2f4050;
+  animation: transicao-valida .4s;
+}
+
+.item-calculadora {
+  position: relative;
+  margin-top: 10px;
+}
+
+.calculadora-formula-invalida {
+
+  background-color: red;
+  animation: transicao-invalida .4s;
+}
+
+@keyframes transicao-invalida {
+
+  from {
+    background-color: #2f4050;
+  }
+  to {
+    background-color: red;
+  }
+}
+
+@keyframes transicao-valida {
+
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: #2f4050;
+  }
+}

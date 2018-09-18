@@ -1,0 +1,66 @@
+<form [formGroup]="formGroup">
+  <div class="ui-g">
+
+    <app-operacao class="ui-g-12 ui-md-3 ui-lg-2"
+                  [label]="'Condicional'"
+                  [valor]="'SE() ENTAO() SENAO()'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="'.'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="'('"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="')'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="'+'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="'-'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="'*'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <app-operacao class="ui-g-4 ui-md-2 ui-lg-1"
+                  [valor]="'/'"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <div class="ui-g-12 ui-md-7 md-inputfield">
+    <input pInputText id="digito-calculadora"
+           [(ngModel)]="valorInput"
+           [ngModelOptions]="{standalone: true}">
+      <label>Dígito:</label>
+    </div>
+
+    <app-operacao class="ui-g-12 ui-md-2" id="btn-adicionar-operacao"
+                  [label]="'Inserir'"
+                  [valor]="valorInput"
+                  (valorAdicionado)="adicionarOperacao($event)"></app-operacao>
+
+    <div class="ui-g-12"></div>
+
+    <div id="calculadora-container" class="ui-g-12 calculadora-container" *ngIf="formGroup.get('calculadora').value?.length > 0">
+
+      <div *ngFor="let itemCalculadora of formGroup.get('calculadora').controls">
+
+        <app-item-calculadora class="item-calculadora"
+                              [valor]="itemCalculadora"
+                              [index]="getIndex(itemCalculadora)"
+                              (editado)="itemEditado()"
+                              (excluido)="excluido($event)"
+                              (moverParaTras)="moverParaTras($event)"
+                              (moverParaFrente)="moverParaFrente($event)"></app-item-calculadora>
+      </div>
+
+    </div>
+  </div>
+</form>

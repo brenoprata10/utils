@@ -1,0 +1,12 @@
+button {
+  animation: fade-in .5s;
+}
+
+@media (max-width: 992px) {
+  button {
+    border-radius: unset !important;
+    height: 3.5em !important;
+    width: 100% !important;
+
+  }
+}

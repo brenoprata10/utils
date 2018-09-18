@@ -1,0 +1,20 @@
+.imagem-selecionada {
+
+  border: 2px solid #2f4050 !important;
+  border-radius: 6px;
+}
+
+.imagem-selecao-opcao {
+
+  border: 2px solid transparent;
+  border-radius: 6px;
+  max-height: 6rem;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+  animation: fade-in .3s;
+
+  &:hover {
+    transition: .2s ease-in-out;
+    border-color: lighten(#2f4050, 24);
+  }
+}

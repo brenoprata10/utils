@@ -1,0 +1,19 @@
+<div *ngIf="isMostrarCampoObrigatorio()" class="campo-invalido">
+    Campo obrigatório!
+</div>
+
+<div *ngIf="isMostrarMesIncorreto()" class="campo-invalido">
+    Mês incorreto! Valores permitidos: {{formControl.getError('mes').valorMinimo}} até {{formControl.getError('mes').valorMaximo}}
+</div>
+
+<div *ngIf="isMostrarAnoIncorreto()" class="campo-invalido">
+    Ano incorreto! {{mensagemValidacaoAno}}
+</div>
+
+<div *ngIf="isMostrarPadraoInvalido()" class="campo-invalido">
+    Padrão incorreto!
+</div>
+
+<div *ngIf="isMostrarValorMinimo()" class="campo-invalido">
+    O valor mínimo é {{formControl.getError('min').min}}!
+</div>

@@ -1,0 +1,11 @@
+<button pButton
+        type="button"
+        icon="ui-icon-arrow-back"
+        [label]="'Voltar'"
+        (click)="confimarPercaAlteracoes()"></button>
+
+<p-confirmDialog header="Confirmação"
+                 icon="ui-icon-help"
+                 acceptLabel="Sim"
+                 rejectLabel="Não"
+                 [responsive]="true"></p-confirmDialog>

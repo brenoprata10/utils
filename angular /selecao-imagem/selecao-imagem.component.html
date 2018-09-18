@@ -1,0 +1,9 @@
+<div *ngFor="let imagem of imagens">
+    <div class="ui-g-12 ui-md-3 ui-lg-2" *ngIf="imagem.isRenderizar()">
+
+        <img id="{{imagem.id}}"
+             class="imagem-selecao-opcao"
+             src="{{imagem.src}}"
+             (click)="selecionarImagem($event, imagem.valor)">
+    </div>
+</div>

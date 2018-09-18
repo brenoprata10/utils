@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="item-container" id="app-datatable-opcoes">
+        <ng-content *ngIf="!isMinimizado"></ng-content>
+        <app-datatable-opcoes-item id="datatable-item-esconder"
+                                   icon="ui-icon-keyboard-arrow-right"
+                                   [styleClass]="'item-esconder'"
+                                   title="{{isMinimizado ? 'Maximizar':'Minimizar'}}"
+                                   (click)="mostrarEsconderOpcoes()"></app-datatable-opcoes-item>
+    </div>
+</div>

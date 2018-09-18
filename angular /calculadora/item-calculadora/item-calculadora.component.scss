@@ -1,0 +1,123 @@
+$arrow-color: #E5E5E5;
+
+@mixin btn-cursor {
+  cursor: pointer;
+}
+
+@mixin animated-scale {
+  animation: scale-in .3s ease-out;
+}
+
+@mixin transition-exclusao-effect($segundos: .2s) {
+  transition: $segundos ease-out;
+  -webkit-transition: $segundos ease-out;
+}
+
+@mixin item-calculadora-container($background-color: white) {
+  z-index: 10;
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 1.2rem;
+  background-color: $background-color;
+  padding: 9px 4px 9px 4px;
+  @include animated-scale;
+}
+
+@mixin icone-item($line-height: 20px) {
+  i {
+    line-height: $line-height;
+    margin-left: 3px;
+  }
+}
+
+@mixin item-rounded($font-color, $margin-top, $background-color, $height: inherit) {
+
+  height: $height;
+  width: 23px;
+  font-size: .7rem;
+  margin-left: -2px;
+  color: $font-color;
+  margin-top: $margin-top;
+  background-color: $background-color;
+
+  @include btn-cursor;
+  @include animated-scale;
+  @include transition-exclusao-effect;
+
+
+}
+
+.item-calculadora-grid {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.item-calculadora-container {
+  @include item-calculadora-container;
+}
+
+.item-calculadora-container-edicao {
+  color: white;
+  @include item-calculadora-container(lighten(gray, 3));
+}
+
+.item-arrow {
+
+  color: $arrow-color;
+  font-size: 1rem;
+  animation: scale-in .3s ease-out;
+  margin-top: 3px;
+  @include btn-cursor;
+  @include animated-scale;
+
+}
+
+.item-exclusao {
+
+  @include item-rounded(white, 0, red, 19px);
+  @include icone-item(20px);
+
+  &:hover {
+
+    color: red;
+    background-color: $arrow-color;
+    @include transition-exclusao-effect;
+  }
+}
+
+.item-concluir {
+
+  border-top: 1px solid gray;
+  @include item-rounded($arrow-color, 0, green, 19px);
+  @include icone-item(20px);
+}
+
+
+.item-edicao {
+
+  @include item-rounded(white, 0, #A4B209);
+  @include icone-item(33px);
+  animation: dash-right .3s;
+  z-index: 0;
+
+  &:hover {
+
+    color: #2F4050;
+    background-color: #A4B209;
+    @include transition-exclusao-effect;
+  }
+}
+
+.esconder-item {
+  animation: dash-hide-right .3s;
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

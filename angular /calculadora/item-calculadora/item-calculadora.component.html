@@ -1,0 +1,59 @@
+<div class="item-calculadora-grid">
+
+    <div class="item-arrow"
+         id="mover-item-esquerda"
+         *ngIf="isMostrarOpcoes"
+         (click)="moverParaTrasMethod()">
+        <i class="material-icons">
+            keyboard_arrow_left
+        </i>
+    </div>
+
+    <div class="item-calculadora-container" *ngIf="!isEdicao" (click)="editar($event)">
+        {{valor.value.valor}}
+    </div>
+
+    <input autofocus pInputText class="item-calculadora-container-edicao"
+           id="editar-item-container"
+           *ngIf="isEdicao"
+           (blur)="efetuarEdicao()"
+           [(ngModel)]="valorEdicao">
+
+    <div class="item-edicao"
+         id="habilitar-item-edicao"
+         *ngIf="isMostrarOpcaoEditar && !isMostrarOpcoes"
+         (click)="mostrarOpcoes()">
+        <i class="material-icons">
+            edit
+        </i>
+    </div>
+
+    <div style="display: flex; flex-direction: column">
+        <div class="item-exclusao"
+             id="excluir-item-calculadora"
+             *ngIf="isMostrarOpcoes"
+             (click)="excluir()">
+            <i class="material-icons">
+                close
+            </i>
+        </div>
+        <div class="item-concluir"
+             id="concluir-item-calculadora"
+             *ngIf="isMostrarOpcoes"
+             (click)="concluirAlteracao()">
+            <i class="material-icons">
+                check
+            </i>
+        </div>
+    </div>
+
+    <div class="item-arrow"
+         id="mover-item-direita"
+         *ngIf="isMostrarOpcoes"
+         (click)="moverParaFrenteMethod()">
+        <i class="material-icons">
+            keyboard_arrow_right
+        </i>
+    </div>
+
+</div>
