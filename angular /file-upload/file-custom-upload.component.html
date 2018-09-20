@@ -1,0 +1,36 @@
+<p-blockUI [blocked]="bloquearUpload">
+  <div class="container-block-upload">
+    <div class="block-file-upload">
+      <i class="material-icons icon-upload">cloud_upload</i>
+      <strong class="message-upload">{{mensagemUpload}}
+        <span class="loader__dot" *ngIf="!isErroAnexo">.</span>
+        <span class="loader__dot" *ngIf="!isErroAnexo">.</span>
+        <span class="loader__dot" *ngIf="!isErroAnexo">.</span>
+      </strong>
+      <strong class="file-name">{{nomeArquivoSelecionado}}</strong>
+      <p-progressBar class="progress-bar-upload" [value]="progressoUpload"></p-progressBar>
+      <button *ngIf="isErroAnexo" (click)="unlockBlockUI()" icon="fa-close" class="error-button-upload" pButton type="button" label="Encerrar"></button>
+    </div>
+  </div>
+</p-blockUI>
+
+<p-fileUpload class="{{styleClass}}"
+              name="documentos[]"
+              auto="{{auto}}"
+              [mode]="mode"
+              accept="{{accept}}"
+              [url]="url"
+              multiple="{{multiple}}"
+              uploadLabel="{{uploadLabel}}"
+              cancelLabel="{{cancelLabel}}"
+              maxFileSize="{{maxFileSize}}"
+              chooseLabel="{{chooseLabel}}"
+              invalidFileSizeMessageDetail="{{invalidFileSizeMessageDetail}}"
+              invalidFileSizeMessageSummary="{{invalidFileSizeMessageSummary}}"
+              (onError)="onErrorCustom($event)"
+              (onUpload)="onUploadCustom($event)"
+              (onSelect)="onSelectCustom($event)"
+              (onProgress)="onProgressCustom($event)"
+              (onBeforeSend)="onBeforeSendCustom($event)"
+              (onBeforeUpload)="onBeforeUploadCustom($event)">
+</p-fileUpload>

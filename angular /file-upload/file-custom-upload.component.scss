@@ -1,0 +1,52 @@
+$margin-top-upload: 10px;
+
+@mixin margin-top-default($margin-top-mixin: $margin-top-upload) {
+  margin-top: $margin-top-mixin;
+}
+
+.block-file-upload {
+  position: absolute;
+  display: flex;
+  top: 40%;
+  color: white;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container-block-upload {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.icon-upload {
+  font-size: 6rem;
+  margin-left: 96px;
+}
+
+.message-upload {
+  @include margin-top-default();
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.file-name {
+  font-size: 1rem;
+  text-align: center
+}
+
+.progress-bar-upload {
+  @include margin-top-default();
+}
+
+.error-button-upload {
+  @include margin-top-default();
+}
+
+.loader__dot { animation: 1s blink infinite }
+.loader__dot:nth-child(2) { animation-delay: 250ms }
+.loader__dot:nth-child(3) { animation-delay: 500ms }
+
+@keyframes blink {
+  50% { color: transparent }
+}
